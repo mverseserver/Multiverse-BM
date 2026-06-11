@@ -1,0 +1,28 @@
+name: MultiverseBlackmarket
+description: A fully customizable black market plugin with rarity tiers, dynamic pricing, Vault & PlayerPoints support
+version: '${project.version}'
+main: id.multiverse.blackmarket.MultiverseBlackmarket
+api-version: '1.21'
+authors: [Multiverse Team]
+softdepend: [Vault, PlayerPoints, PlaceholderAPI]
+
+commands:
+  blackmarket:
+    description: Open the Black Market
+    aliases: [bm, mbm]
+    permission: multiversebm.use
+  blackmarketadmin:
+    description: Admin commands for Multiverse Blackmarket
+    aliases: [bmadmin, mbmadmin]
+    permission: multiversebm.admin
+
+permissions:
+  multiversebm.use:
+    description: Allows players to use /blackmarket
+    default: true
+  multiversebm.admin:
+    description: Allows access to admin commands
+    default: op
+  multiversebm.bypass.cooldown:
+    description: Bypass purchase cooldown
+    default: op

@@ -1,0 +1,57 @@
+# ╔══════════════════════════════════════════════════════╗
+# ║         MULTIVERSE BLACKMARKET - config.yml          ║
+# ║         Plugin by Multiverse Team                    ║
+# ╚══════════════════════════════════════════════════════╝
+
+settings:
+  # Interval restock dalam menit
+  restock-interval-minutes: 60
+
+  # Jumlah item yang tampil per restock (diambil random dari pool berdasarkan rarity & chance)
+  offers-per-restock: 5
+
+  # Apakah broadcast ke semua player saat restock
+  announce-restocks: true
+
+  # Perintah /blackmarket langsung buka GUI atau tampilkan info
+  command-opens-gui: true
+
+  # Harga dinamis: setiap restock harga berubah dalam range min-max
+  dynamic-pricing:
+    enabled: true
+    # Variasi harga ±X% dari harga base (0 = harga selalu tetap)
+    variance-percent: 30
+
+  # Cooldown pembelian per player (milliseconds)
+  purchase-cooldown-millis: 500
+
+  # Format waktu
+  time-format:
+    day: "d"
+    hour: "h"
+    minute: "m"
+    second: "s"
+
+# Pengaturan ekonomi
+economy:
+  # Mode: VAULT, PLAYERPOINTS, atau BOTH (player bisa pilih)
+  # VAULT  = uang dari Vault economy (rupiah/coin dll)
+  # PLAYERPOINTS = poin dari PlayerPoints plugin
+  default-currency: VAULT
+
+# Pengaturan announcement broadcast saat restock
+broadcast:
+  # Apakah pakai title di layar player
+  use-title: true
+  title: "<gradient:#1a1a2e:#0d0d0d>⚠ BLACK MARKET ⚠</gradient>"
+  subtitle: "<gradient:#2d2d2d:#000000>Telah dibuka kembali! Cepat sebelum kehabisan!</gradient>"
+
+  # Chat broadcast dengan gradient hitam
+  chat-message: "<gradient:#1a1a1a:#3d3d3d>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</gradient>\n<gradient:#2c2c2c:#555555>  ⚫ BLACK MARKET telah <gradient:#444444:#888888>RESTOCK!</gradient>  ⚫</gradient>\n<gradient:#1a1a1a:#404040>  Barang langka tersedia sekarang!</gradient>\n<gradient:#111111:#333333>  Ketik <white>/bm</white> untuk membuka market!</gradient>\n<gradient:#1a1a1a:#3d3d3d>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</gradient>"
+
+  # Sound saat broadcast
+  sound:
+    enabled: true
+    type: ENTITY_ENDER_DRAGON_GROWL
+    volume: 0.5
+    pitch: 0.8

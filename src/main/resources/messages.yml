@@ -1,0 +1,40 @@
+# ╔══════════════════════════════════════════════════════╗
+# ║       MULTIVERSE BLACKMARKET - messages.yml          ║
+# ╚══════════════════════════════════════════════════════╝
+
+prefix: "<gradient:#1a1a1a:#3d3d3d>⚫</gradient> <gradient:#333333:#666666>MultiverseBM</gradient> <dark_gray>»</dark_gray>"
+
+messages:
+  no-permission: "{prefix} <red>Kamu tidak punya izin untuk ini."
+  player-only: "{prefix} <red>Perintah ini hanya bisa digunakan oleh player."
+  blackmarket-info: "{prefix} <gray>Ketik <white>/bm</white> untuk membuka Black Market. Restock berikutnya: <white>{time_remaining}</white>."
+  market-unavailable: "{prefix} <red>Black Market belum siap. Tunggu sebentar."
+  reload-success: "{prefix} <green>Semua konfigurasi berhasil di-reload."
+  restock-success: "{prefix} <green>Black Market berhasil di-restock secara paksa."
+  opengui-success: "{prefix} <green>Membuka Black Market untuk <white>{player}</white>."
+  player-not-found: "{prefix} <red>Player <white>{player}</white> tidak ditemukan."
+  invalid-subcommand: "{prefix} <red>Usage: <white>/bmadmin <reload|restock|opengui|help>"
+  invalid-opengui: "{prefix} <red>Usage: <white>/bmadmin opengui <player>"
+
+  market-bought: "{prefix} <green>Berhasil membeli <white>{reward}</white>! Stok tersisa: <white>{stock}</white>."
+  market-sold-out: "{prefix} <red>Item ini sudah habis terjual!"
+  market-not-enough-money: "{prefix} <red>Kamu butuh <white>{price}</white> tapi hanya punya <white>{balance}</white>."
+  market-not-enough-points: "{prefix} <red>Kamu butuh <white>{price} poin</white> tapi hanya punya <white>{balance} poin</white>."
+  market-inventory-full: "{prefix} <red>Inventory kamu penuh! Bersihkan dulu sebelum membeli."
+  market-purchase-failed: "{prefix} <red>Pembelian gagal. Coba lagi nanti."
+  market-cooldown: "{prefix} <red>Tunggu sebentar sebelum membeli lagi."
+
+  # Broadcast saat restock (digunakan jika broadcast.use-title = false di config.yml)
+  restock-broadcast: "\n<gradient:#1a1a1a:#3d3d3d>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</gradient>\n<gradient:#2c2c2c:#555555>        ⚫ <white>BLACK MARKET</white> <gradient:#444444:#888888>TELAH RESTOCK!</gradient>  ⚫</gradient>\n<gradient:#1a1a1a:#404040>    Ada barang langka tersedia sekarang!</gradient>\n<gradient:#111111:#333333>    Ketik <white>/bm</white> untuk membuka market!</gradient>\n<gradient:#111111:#333333>    Restock berikutnya: <white>{time_remaining}</white></gradient>\n<gradient:#1a1a1a:#3d3d3d>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</gradient>\n"
+
+  help-header: "\n<gradient:#1a1a1a:#3d3d3d>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</gradient>"
+  help-title: "<gradient:#2c2c2c:#666666>  ⚫ Multiverse Blackmarket Commands</gradient>"
+  help-line-1: "<dark_gray>  /bm <gray>- Buka Black Market"
+  help-line-2: "<dark_gray>  /bmadmin reload <gray>- Reload konfigurasi"
+  help-line-3: "<dark_gray>  /bmadmin restock <gray>- Force restock"
+  help-line-4: "<dark_gray>  /bmadmin opengui <player> <gray>- Buka market untuk player"
+  help-footer: "<gradient:#1a1a1a:#3d3d3d>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</gradient>\n"
+
+gui-titles:
+  main-market: "<gradient:#1a1a1a:#333333>⚫ Black Market</gradient>"
+  confirm-buy: "<gradient:#1a1a1a:#333333>⚫ Konfirmasi Pembelian</gradient>"

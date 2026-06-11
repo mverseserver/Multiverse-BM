@@ -1,0 +1,576 @@
+# ╔══════════════════════════════════════════════════════╗
+# ║         MULTIVERSE BLACKMARKET - market.yml          ║
+# ║  Definisi rarity, reward pool, dan layout GUI        ║
+# ╚══════════════════════════════════════════════════════╝
+
+# ─── Rarity Definitions ────────────────────────────────
+# Setiap rarity punya:
+#   name       - nama tampilan (support hex color #RRGGBB)
+#   weight     - bobot random (makin kecil = makin jarang)
+#   color      - warna untuk template GUI item
+#   glow       - apakah item di GUI dikasih efek enchant glow
+#   icon       - item ikon di filter rarity
+rarities:
+  common:
+    name: "<gray>◆ Common</gray>"
+    weight: 60
+    color: "#aaaaaa"
+    glow: false
+    icon:
+      material: STONE
+      name: "<gray>◆ Common</gray>"
+      lore:
+        - "<dark_gray>Item umum yang mudah didapat."
+        - "<dark_gray>Chance: <gray>Tinggi"
+
+  uncommon:
+    name: "<green>◆ Uncommon</green>"
+    weight: 30
+    color: "#55ff55"
+    glow: false
+    icon:
+      material: IRON_INGOT
+      name: "<green>◆ Uncommon</green>"
+      lore:
+        - "<dark_gray>Item dengan kualitas di atas rata-rata."
+        - "<dark_gray>Chance: <green>Sedang"
+
+  rare:
+    name: "<aqua>◆ Rare</aqua>"
+    weight: 15
+    color: "#55ffff"
+    glow: true
+    icon:
+      material: DIAMOND
+      name: "<aqua>◆ Rare</aqua>"
+      lore:
+        - "<dark_gray>Item berharga yang jarang muncul."
+        - "<dark_gray>Chance: <aqua>Rendah"
+
+  epic:
+    name: "<dark_purple>◆ Epic</dark_purple>"
+    weight: 7
+    color: "#aa00aa"
+    glow: true
+    icon:
+      material: AMETHYST_SHARD
+      name: "<dark_purple>◆ Epic</dark_purple>"
+      lore:
+        - "<dark_gray>Item kuat dengan kemampuan luar biasa."
+        - "<dark_gray>Chance: <dark_purple>Sangat Rendah"
+
+  legendary:
+    name: "<gold>⚡ Legendary</gold>"
+    weight: 3
+    color: "#ffaa00"
+    glow: true
+    icon:
+      material: NETHER_STAR
+      name: "<gold>⚡ Legendary</gold>"
+      lore:
+        - "<dark_gray>Item terlangka di seluruh Multiverse."
+        - "<dark_gray>Chance: <gold>Sangat Sangat Rendah"
+
+# ─── GUI Layout ────────────────────────────────────────
+gui:
+  # Ukuran inventory (9, 18, 27, 36, 45, 54)
+  size: 54
+  # Slot info/timer
+  info-slot: 4
+  # Slot close button
+  close-slot: 49
+  # Slot rarity filter (max 6)
+  rarity-filter-slots: [46, 47, 48, 50, 51, 52]
+  # Slot untuk offer items
+  offer-slots: [10,11,12,13,14,15,16, 19,20,21,22,23,24,25, 28,29,30,31,32,33,34]
+  # Filler item
+  filler:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+
+# ─── Reward Pool ───────────────────────────────────────
+# Setiap reward punya:
+#   name        - nama tampilan
+#   rarity      - harus sesuai dengan key di rarities atas
+#   chance      - 0.0-100.0, peluang reward ini dipilih dari pool raritynya
+#   stock       - stok per restock (0 = unlimited)
+#   price-base  - harga dasar (dimodifikasi dynamic-pricing di config.yml)
+#   price-min / price-max - override range harga (opsional, overrides variance)
+#   currency    - VAULT atau PLAYERPOINTS (override default di config.yml)
+#   icon        - item untuk ditampilkan di GUI
+#   reward-item - item yang diberikan ke player (kosongkan jika command-only)
+#   commands    - list command yang dijalankan saat beli ({player} = nama player)
+rewards:
+
+  # ── COMMON ─────────────────────────────────────────
+  cooked_beef_bundle:
+    name: "<gray>Paket Makanan Dasar</gray>"
+    rarity: common
+    chance: 80.0
+    stock: 20
+    price-base: 250.0
+    currency: VAULT
+    icon:
+      material: COOKED_BEEF
+      amount: 16
+      name: "<gray>🍖 Paket Makanan Dasar</gray>"
+      lore:
+        - "<dark_gray>Stok makanan untuk petualangan."
+        - ""
+        - "<gray>Isi: <white>16x Daging Panggang"
+    reward-item:
+      material: COOKED_BEEF
+      amount: 16
+      name: "<gray>🍖 Paket Makanan Dasar</gray>"
+    commands: []
+
+  bread_bundle:
+    name: "<gray>Paket Roti</gray>"
+    rarity: common
+    chance: 75.0
+    stock: 20
+    price-base: 150.0
+    currency: VAULT
+    icon:
+      material: BREAD
+      amount: 32
+      name: "<gray>🍞 Paket Roti</gray>"
+      lore:
+        - "<dark_gray>Roti segar dari dapur gelap."
+        - ""
+        - "<gray>Isi: <white>32x Roti"
+    reward-item:
+      material: BREAD
+      amount: 32
+      name: "<gray>🍞 Paket Roti</gray>"
+    commands: []
+
+  torch_bundle:
+    name: "<gray>Paket Obor</gray>"
+    rarity: common
+    chance: 70.0
+    stock: 30
+    price-base: 100.0
+    currency: VAULT
+    icon:
+      material: TORCH
+      amount: 64
+      name: "<gray>🕯 Paket Obor</gray>"
+      lore:
+        - "<dark_gray>Penerangan untuk gua terdalam."
+        - ""
+        - "<gray>Isi: <white>64x Obor"
+    reward-item:
+      material: TORCH
+      amount: 64
+      name: "<gray>🕯 Paket Obor</gray>"
+    commands: []
+
+  arrow_bundle:
+    name: "<gray>Paket Panah</gray>"
+    rarity: common
+    chance: 65.0
+    stock: 15
+    price-base: 200.0
+    currency: VAULT
+    icon:
+      material: ARROW
+      amount: 32
+      name: "<gray>🏹 Paket Panah</gray>"
+      lore:
+        - "<dark_gray>Panah siap pakai untuk pemburu."
+        - ""
+        - "<gray>Isi: <white>32x Panah"
+    reward-item:
+      material: ARROW
+      amount: 32
+      name: "<gray>🏹 Paket Panah</gray>"
+    commands: []
+
+  # ── UNCOMMON ────────────────────────────────────────
+  iron_armor_set:
+    name: "<green>Set Armor Besi</green>"
+    rarity: uncommon
+    chance: 50.0
+    stock: 10
+    price-base: 1200.0
+    currency: VAULT
+    icon:
+      material: IRON_CHESTPLATE
+      amount: 1
+      name: "<green>🛡 Set Armor Besi</green>"
+      lore:
+        - "<dark_gray>Perlindungan standar untuk adventurer."
+        - ""
+        - "<gray>Isi: <white>Helmet + Chestplate + Legging + Boots"
+    reward-item:
+      material: IRON_CHESTPLATE
+      amount: 1
+      name: "<green>🛡 Set Armor Besi</green>"
+    commands:
+      - "give {player} iron_helmet 1"
+      - "give {player} iron_leggings 1"
+      - "give {player} iron_boots 1"
+
+  golden_apple:
+    name: "<green>Golden Apple</green>"
+    rarity: uncommon
+    chance: 45.0
+    stock: 5
+    price-base: 800.0
+    currency: VAULT
+    icon:
+      material: GOLDEN_APPLE
+      amount: 3
+      name: "<green>🍎 Golden Apple x3</green>"
+      lore:
+        - "<dark_gray>Buah emas yang menyembuhkan."
+        - ""
+        - "<gray>Isi: <white>3x Golden Apple"
+    reward-item:
+      material: GOLDEN_APPLE
+      amount: 3
+      name: "<green>🍎 Golden Apple x3</green>"
+    commands: []
+
+  exp_bottle_pack:
+    name: "<green>Paket XP Bottle</green>"
+    rarity: uncommon
+    chance: 40.0
+    stock: 8
+    price-base: 600.0
+    currency: VAULT
+    icon:
+      material: EXPERIENCE_BOTTLE
+      amount: 16
+      name: "<green>🧪 Paket XP Bottle</green>"
+      lore:
+        - "<dark_gray>Tingkatkan level dengan cepat."
+        - ""
+        - "<gray>Isi: <white>16x Bottle o' Enchanting"
+    reward-item:
+      material: EXPERIENCE_BOTTLE
+      amount: 16
+      name: "<green>🧪 Paket XP Bottle</green>"
+    commands: []
+
+  iron_pickaxe_eff:
+    name: "<green>Pickaxe Efficiency II</green>"
+    rarity: uncommon
+    chance: 35.0
+    stock: 6
+    price-base: 1000.0
+    currency: VAULT
+    icon:
+      material: IRON_PICKAXE
+      amount: 1
+      name: "<green>⛏ Pickaxe Efficiency II</green>"
+      lore:
+        - "<dark_gray>Pickaxe besi dengan efisiensi tinggi."
+        - ""
+        - "<gray>Enchant: <white>Efficiency II, Unbreaking I"
+    reward-item:
+      material: IRON_PICKAXE
+      amount: 1
+      name: "<green>⛏ Pickaxe Efficiency II</green>"
+      enchantments:
+        EFFICIENCY: 2
+        UNBREAKING: 1
+    commands: []
+
+  # ── RARE ────────────────────────────────────────────
+  diamond_pack:
+    name: "<aqua>Paket Diamond</aqua>"
+    rarity: rare
+    chance: 30.0
+    stock: 5
+    price-base: 3500.0
+    currency: VAULT
+    icon:
+      material: DIAMOND
+      amount: 8
+      name: "<aqua>💎 Paket Diamond</aqua>"
+      lore:
+        - "<dark_gray>Diamond langka dari tambang terlarang."
+        - ""
+        - "<gray>Isi: <white>8x Diamond"
+    reward-item:
+      material: DIAMOND
+      amount: 8
+      name: "<aqua>💎 Paket Diamond</aqua>"
+    commands: []
+
+  diamond_sword_sharp:
+    name: "<aqua>Diamond Sword Sharpness III</aqua>"
+    rarity: rare
+    chance: 25.0
+    stock: 3
+    price-base: 5000.0
+    currency: VAULT
+    icon:
+      material: DIAMOND_SWORD
+      amount: 1
+      name: "<aqua>⚔ Diamond Sword Sharpness III</aqua>"
+      lore:
+        - "<dark_gray>Pedang diamond tajam dari dunia gelap."
+        - ""
+        - "<gray>Enchant: <white>Sharpness III, Looting II"
+    reward-item:
+      material: DIAMOND_SWORD
+      amount: 1
+      name: "<aqua>⚔ Diamond Sword Sharpness III</aqua>"
+      enchantments:
+        SHARPNESS: 3
+        LOOTING: 2
+    commands: []
+
+  elytra_repair:
+    name: "<aqua>Elytra</aqua>"
+    rarity: rare
+    chance: 20.0
+    stock: 2
+    price-base: 8000.0
+    currency: VAULT
+    icon:
+      material: ELYTRA
+      amount: 1
+      name: "<aqua>🦋 Elytra</aqua>"
+      lore:
+        - "<dark_gray>Sayap untuk terbang melintasi dunia."
+        - ""
+        - "<gray>Kondisi: <white>Baru"
+    reward-item:
+      material: ELYTRA
+      amount: 1
+      name: "<aqua>🦋 Elytra</aqua>"
+    commands: []
+
+  totem_of_undying:
+    name: "<aqua>Totem of Undying</aqua>"
+    rarity: rare
+    chance: 15.0
+    stock: 2
+    price-base: 6000.0
+    currency: VAULT
+    icon:
+      material: TOTEM_OF_UNDYING
+      amount: 1
+      name: "<aqua>🔮 Totem of Undying</aqua>"
+      lore:
+        - "<dark_gray>Menyelamatkanmu dari kematian."
+        - ""
+        - "<gray>Gunakan: <white>Tahan di tangan saat mati"
+    reward-item:
+      material: TOTEM_OF_UNDYING
+      amount: 1
+      name: "<aqua>🔮 Totem of Undying</aqua>"
+    commands: []
+
+  # ── EPIC ────────────────────────────────────────────
+  netherite_ingot_pack:
+    name: "<dark_purple>Paket Netherite Ingot</dark_purple>"
+    rarity: epic
+    chance: 15.0
+    stock: 2
+    price-base: 15000.0
+    currency: VAULT
+    icon:
+      material: NETHERITE_INGOT
+      amount: 4
+      name: "<dark_purple>⚙ Paket Netherite Ingot</dark_purple>"
+      lore:
+        - "<dark_gray>Material terkuat di alam semesta."
+        - ""
+        - "<gray>Isi: <white>4x Netherite Ingot"
+    reward-item:
+      material: NETHERITE_INGOT
+      amount: 4
+      name: "<dark_purple>⚙ Paket Netherite Ingot</dark_purple>"
+    commands: []
+
+  diamond_armor_full:
+    name: "<dark_purple>Full Set Diamond Armor</dark_purple>"
+    rarity: epic
+    chance: 12.0
+    stock: 2
+    price-base: 18000.0
+    currency: VAULT
+    icon:
+      material: DIAMOND_CHESTPLATE
+      amount: 1
+      name: "<dark_purple>🛡 Full Set Diamond Armor</dark_purple>"
+      lore:
+        - "<dark_gray>Perlindungan diamond terlengkap."
+        - ""
+        - "<gray>Isi: <white>Full Diamond Armor Set"
+        - "<gray>Enchant: <white>Protection III"
+    reward-item:
+      material: DIAMOND_CHESTPLATE
+      amount: 1
+      name: "<dark_purple>🛡 Diamond Chestplate</dark_purple>"
+      enchantments:
+        PROTECTION: 3
+        UNBREAKING: 2
+    commands:
+      - "give {player} diamond_helmet{Enchantments:[{id:protection,lvl:3},{id:unbreaking,lvl:2}]} 1"
+      - "give {player} diamond_leggings{Enchantments:[{id:protection,lvl:3},{id:unbreaking,lvl:2}]} 1"
+      - "give {player} diamond_boots{Enchantments:[{id:protection,lvl:3},{id:unbreaking,lvl:2}]} 1"
+
+  god_apple_pack:
+    name: "<dark_purple>Enchanted Golden Apple</dark_purple>"
+    rarity: epic
+    chance: 10.0
+    stock: 2
+    price-base: 12000.0
+    currency: PLAYERPOINTS
+    icon:
+      material: ENCHANTED_GOLDEN_APPLE
+      amount: 2
+      name: "<dark_purple>✨ Enchanted Golden Apple x2</dark_purple>"
+      lore:
+        - "<dark_gray>Buah dewa yang memberi kekuatan luar biasa."
+        - ""
+        - "<gray>Isi: <white>2x Enchanted Golden Apple"
+        - "<gray>Harga: <light_purple>Poin"
+    reward-item:
+      material: ENCHANTED_GOLDEN_APPLE
+      amount: 2
+      name: "<dark_purple>✨ Enchanted Golden Apple x2</dark_purple>"
+    commands: []
+
+  vip_rank_30d:
+    name: "<dark_purple>VIP Rank 30 Hari</dark_purple>"
+    rarity: epic
+    chance: 8.0
+    stock: 1
+    price-base: 500.0
+    currency: PLAYERPOINTS
+    icon:
+      material: PLAYER_HEAD
+      amount: 1
+      name: "<dark_purple>👑 VIP Rank 30 Hari</dark_purple>"
+      lore:
+        - "<dark_gray>Nikmati keistimewaan VIP selama sebulan."
+        - ""
+        - "<gray>Harga: <light_purple>{price} Poin"
+        - "<gray>Durasi: <white>30 Hari"
+    reward-item: {}
+    commands:
+      - "lp user {player} parent add vip"
+      - "broadcast &d{player} &7mendapatkan VIP 30 hari dari Black Market!"
+
+  # ── LEGENDARY ───────────────────────────────────────
+  legendary_sword:
+    name: "<gold>⚡ Excalibur</gold>"
+    rarity: legendary
+    chance: 5.0
+    stock: 1
+    price-base: 50000.0
+    price-min: 45000.0
+    price-max: 60000.0
+    currency: VAULT
+    icon:
+      material: NETHERITE_SWORD
+      amount: 1
+      name: "<gold>⚡ Excalibur - Pedang Legenda</gold>"
+      lore:
+        - "<dark_gray>Pedang paling kuat yang pernah ada."
+        - ""
+        - "<gold>Enchant:"
+        - "<yellow>  Sharpness V, Fire Aspect II"
+        - "<yellow>  Looting III, Unbreaking III"
+        - "<yellow>  Mending"
+        - ""
+        - "<gray>Stok: <gold>Sangat Terbatas"
+    reward-item:
+      material: NETHERITE_SWORD
+      amount: 1
+      name: "<gold>⚡ Excalibur</gold>"
+      enchantments:
+        SHARPNESS: 5
+        FIRE_ASPECT: 2
+        LOOTING: 3
+        UNBREAKING: 3
+        MENDING: 1
+    commands:
+      - "broadcast <gradient:#ffaa00:#ff6600>⚡ {player} mendapatkan Excalibur dari Black Market!</gradient>"
+
+  legendary_armor:
+    name: "<gold>⚡ Set Armor Dewa</gold>"
+    rarity: legendary
+    chance: 4.0
+    stock: 1
+    price-base: 75000.0
+    price-min: 70000.0
+    price-max: 85000.0
+    currency: VAULT
+    icon:
+      material: NETHERITE_CHESTPLATE
+      amount: 1
+      name: "<gold>⚡ Set Armor Dewa</gold>"
+      lore:
+        - "<dark_gray>Armor yang dibuat oleh para dewa."
+        - ""
+        - "<gold>Enchant:"
+        - "<yellow>  Protection IV, Unbreaking III"
+        - "<yellow>  Mending, Thorns II"
+        - ""
+        - "<gray>Stok: <gold>Sangat Terbatas"
+    reward-item:
+      material: NETHERITE_CHESTPLATE
+      amount: 1
+      name: "<gold>⚡ Dewa Chestplate</gold>"
+      enchantments:
+        PROTECTION: 4
+        UNBREAKING: 3
+        MENDING: 1
+        THORNS: 2
+    commands:
+      - "give {player} netherite_helmet{Enchantments:[{id:protection,lvl:4},{id:unbreaking,lvl:3},{id:mending,lvl:1}]} 1"
+      - "give {player} netherite_leggings{Enchantments:[{id:protection,lvl:4},{id:unbreaking,lvl:3},{id:mending,lvl:1}]} 1"
+      - "give {player} netherite_boots{Enchantments:[{id:protection,lvl:4},{id:feather_falling,lvl:4},{id:mending,lvl:1}]} 1"
+      - "broadcast <gradient:#ffaa00:#ff6600>⚡ {player} mendapatkan Set Armor Dewa dari Black Market!</gradient>"
+
+  legendary_crate_key:
+    name: "<gold>⚡ Legendary Crate Key</gold>"
+    rarity: legendary
+    chance: 6.0
+    stock: 1
+    price-base: 2000.0
+    currency: PLAYERPOINTS
+    icon:
+      material: TRIPWIRE_HOOK
+      amount: 1
+      name: "<gold>🗝 Legendary Crate Key</gold>"
+      lore:
+        - "<dark_gray>Kunci untuk membuka crate paling berharga."
+        - ""
+        - "<gold>Hadiah: <white>Random Legendary Item"
+        - "<gray>Harga: <gold>{price} Poin"
+    reward-item: {}
+    commands:
+      - "crate key give {player} legendary 1"
+      - "broadcast <gradient:#ffaa00:#ff6600>🗝 {player} mendapatkan Legendary Key dari Black Market!</gradient>"
+
+  fly_perm_temp:
+    name: "<gold>⚡ Akses Fly 7 Hari</gold>"
+    rarity: legendary
+    chance: 3.0
+    stock: 1
+    price-base: 3000.0
+    currency: PLAYERPOINTS
+    icon:
+      material: FEATHER
+      amount: 1
+      name: "<gold>🪶 Akses Fly 7 Hari</gold>"
+      lore:
+        - "<dark_gray>Terbang bebas selama seminggu penuh!"
+        - ""
+        - "<gold>Durasi: <white>7 Hari"
+        - "<gray>Harga: <gold>{price} Poin"
+    reward-item: {}
+    commands:
+      - "lp user {player} permission set essentials.fly true"
+      - "lp user {player} meta set fly-expiry 7d"
+      - "tell {player} Kamu mendapatkan akses fly selama 7 hari!"
+      - "broadcast <gradient:#ffaa00:#ff6600>🪶 {player} mendapatkan Akses Fly 7 Hari dari Black Market!</gradient>"
