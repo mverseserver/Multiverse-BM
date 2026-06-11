@@ -118,7 +118,7 @@ public class RewardDefinition {
         meta.setLore(coloredLore);
 
         if (glow) {
-            meta.addEnchant(Enchantment.LUCK, 1, true);
+            meta.addEnchant(Enchantment.UNBREAKING, 1, true);
             meta.addItemFlags(org.bukkit.inventory.ItemFlag.HIDE_ENCHANTS);
         }
 
